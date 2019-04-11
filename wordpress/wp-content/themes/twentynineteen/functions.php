@@ -321,3 +321,43 @@ require get_template_directory() . '/inc/template-tags.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
+
+function  makako_posts( $request_data ) {
+    $args = array(
+        'post_type' => 'page',
+        'posts_per_page'=>-1, 
+        'numberposts'=>-1
+    );
+	$posts = get_posts($args);
+    foreach ($posts as $key => $post) {
+        $posts[$key]->acf = get_fields($post->ID);
+	}	
+	
+    return  $posts;
+}
+add_action( 'rest_api_init', function () {
+    register_rest_route( 'wp/v2', '/makako/', array(
+        'methods' => 'GET',
+        'callback' => 'makako_posts'
+    ));
+});
+
+function single_page( $data ) {
+	$page = get_page_by_path($data['slug']);
+    if ($page) {
+		$id = $page->ID;
+	} else {
+        return null;
+    }
+	$posts = get_post($id);
+    $posts->acf = get_fields($posts->ID);
+	return $posts;
+}
+    
+
+add_action( 'rest_api_init', function () {
+	register_rest_route( 'wp/v2', '/makako/(?P<slug>[\w-]+)', array(
+	  'methods' => 'GET',
+	  'callback' => 'single_page',
+	) );
+  } );

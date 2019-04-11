@@ -6889,21 +6889,3 @@ function wp_direct_php_update_button() {
 }
 
 
-function  makako_posts( $request_data ) {
-    $args = array(
-        'post_type' => 'post',
-        'posts_per_page'=>-1, 
-        'numberposts'=>-1
-    );
-    $posts = get_posts($args);
-    foreach ($posts as $key => $post) {
-        $posts[$key]->acf = get_fields($post->ID);
-    }
-    return  $posts;
-}
-add_action( 'rest_api_init', function () {
-    register_rest_route( 'wp/v2', '/makako/', array(
-        'methods' => 'GET',
-        'callback' => 'makako_posts'
-    ));
-});
