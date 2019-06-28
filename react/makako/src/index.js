@@ -5,17 +5,25 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {createReactElement} from "./componentGenerator/reactFactory";
 let json = {
-  id:3,
   acf_fc_layout: "Div",
-  class: "ciao",
   children: [
     {
-      id: 1,
       acf_fc_layout: "Paragraph",
-      content: "Hello world"
+      content: "ciao",
+      class:"red-text"
+    },{
+      acf_fc_layout: "Paragraph",
+      content: "Andrea",
+    },
+    {
+      acf_fc_layout: "Paragraph",
+      content: "da",
+    },
+    {
+      acf_fc_layout: "Paragraph",
+      content: "Giulio",
     }
   ]
-
 };
 ReactDOM.render(createReactElement(json), document.getElementById('root'));
 console.log(React.createElement("div",{className:"ciao"}))

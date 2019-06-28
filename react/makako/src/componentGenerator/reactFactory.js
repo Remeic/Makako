@@ -87,11 +87,22 @@ function createReactElement(elementJson) {
   ) {
     
     props = additionalProps(elementJson);
-    props["key"] = elementJson["id"];
+    props["key"] = validateKey(elementJson["id"]);
+    props["className"] = elementJson["class"];
     result = React.createElement(components[elementJson.acf_fc_layout],props, (elementJson.children || [])
     .map((children) => createReactElement(children)));
+    console.log(result)
   }
 
+  return result;
+}
+
+
+function validateKey(id) {
+  let result = id;
+  if(id === '' || id === undefined){
+    result = new Date().valueOf();
+  }
   return result;
 }
 
