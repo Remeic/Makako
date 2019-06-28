@@ -9,7 +9,7 @@ function createDivReactElement(elementJson) {
     if(elementJson.hasOwnProperty('class')){
       props["className"] = elementJson.class;
     }
-    result = React.createElement(components[elementJson.acf_fc_layout],props,);
+    result = React.createElement(components[elementJson.acf_fc_layout],props);
   }
   return result;
 }

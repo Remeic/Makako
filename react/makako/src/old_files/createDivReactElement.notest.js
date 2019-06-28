@@ -1,5 +1,5 @@
 import { Div } from "../components";
-import {createDivReactElement} from "../componentGenerator/divGenerator";
+import {createDivReactElement} from "./divGenerator";
 import React from "react";
 
 
