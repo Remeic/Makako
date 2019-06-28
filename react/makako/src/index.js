@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {createReactElement} from "./componentGenerator/reactFactory";
+
 let json = {
   acf_fc_layout: "Div",
   children: [
@@ -20,8 +21,8 @@ let json = {
       content: "da",
     },
     {
-      acf_fc_layout: "Paragraph",
-      content: "Giulio",
+      acf_fc_layout: "Button",
+      content: "Click Me!",
     }
   ]
 };

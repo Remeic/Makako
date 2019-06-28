@@ -5,13 +5,17 @@ import {
   Paragraph
 } from "./Paragraph";
 
+import CustomButton from "./Button"
+
 const components = {
   "Div": Div,
-  "Paragraph": Paragraph
+  "Paragraph": Paragraph,
+  "Button": CustomButton
 }
 export {
   Div,
   Paragraph,
+  CustomButton,
   components
 }
 

@@ -68,7 +68,7 @@ function additionalProps(elementJson) {
       break;
   
     default:
-      result = {}
+      result = additionalParagraphProps(elementJson);
       break;
   }
   return result;
