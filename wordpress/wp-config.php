@@ -46,14 +46,14 @@ define( 'DB_COLLATE', '');
  *
  * @since 2.6.0
  */
-define( 'AUTH_KEY',         'put your unique phrase here' );
-define( 'SECURE_AUTH_KEY',  'put your unique phrase here' );
-define( 'LOGGED_IN_KEY',    'put your unique phrase here' );
-define( 'NONCE_KEY',        'put your unique phrase here' );
-define( 'AUTH_SALT',        'put your unique phrase here' );
-define( 'SECURE_AUTH_SALT', 'put your unique phrase here' );
-define( 'LOGGED_IN_SALT',   'put your unique phrase here' );
-define( 'NONCE_SALT',       'put your unique phrase here' );
+define( 'AUTH_KEY',         '314b1dbaf14392df397372bcdae6d7747d96bf2a');
+define( 'SECURE_AUTH_KEY',  '3d36151b333ee4915074c8e148a2dc6f57490ea0');
+define( 'LOGGED_IN_KEY',    '234bba328f628e9bc4529f25d116958fe8ccc71e');
+define( 'NONCE_KEY',        '4a3612a83fd13443dd2f59b21699d6fd765c4520');
+define( 'AUTH_SALT',        '3ab0f1d2febb898c10875179971717470b1e616e');
+define( 'SECURE_AUTH_SALT', 'aada6289267f38f6e64b69b9dc36b1c867e27070');
+define( 'LOGGED_IN_SALT',   '22aba313a78a0f6f8f8882612a659742fc065bb8');
+define( 'NONCE_SALT',       '7e61010b2e594605d572430e7ec927b8fc8f4d54');
 
 /**#@-*/
 

@@ -7,3 +7,5 @@
 ## 
 ## Custom url endpoint
 `/wp-json/wp/v2/makako` **This url is enabled only in GET mode**
+
+`http://localhost:8000/wp-json/wp/v2/makako`
