@@ -1,5 +1,5 @@
 import { Div } from "../components";
-import {createParagraphReactElement} from "../componentGenerator/paragraphGenerator";
+import {createParagraphReactElement} from "./paragraphGenerator";
 import React from "react";
 
 

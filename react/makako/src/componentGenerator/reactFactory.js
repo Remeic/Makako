@@ -74,7 +74,7 @@ function additionalProps(elementJson) {
   return result;
 }
 
-function createReactElement(elementJson,key) {
+function createReactElement(elementJson) {
   let result = "";
   let props = {};
   if (
@@ -85,12 +85,11 @@ function createReactElement(elementJson,key) {
     ) &&
     elementJson.hasOwnProperty('acf_fc_layout')
   ) {
-    if(key!== "" || key != undefined){
-      props["key"] = key;
-    }
+    
     props = additionalProps(elementJson);
+    props["key"] = elementJson["id"];
     result = React.createElement(components[elementJson.acf_fc_layout],props, (elementJson.children || [])
-    .map((children,key) => createReactElement(children,key)));
+    .map((children) => createReactElement(children)));
   }
 
   return result;
