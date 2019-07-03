@@ -91,7 +91,6 @@ function createReactElement(elementJson) {
     props["className"] = elementJson["class"];
     result = React.createElement(components[elementJson.acf_fc_layout],props, (elementJson.children || [])
     .map((children) => createReactElement(children)));
-    console.log(result)
   }
 
   return result;
