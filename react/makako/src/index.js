@@ -10,19 +10,19 @@ let json = {
   children: [
     {
       acf_fc_layout: "Paragraph",
-      content: "ciao",
+      content: "Makako 🙊",
       class:"red-text"
     },{
       acf_fc_layout: "Paragraph",
-      content: "Andrea",
+      content: "sta",
     },
     {
       acf_fc_layout: "Paragraph",
-      content: "da",
+      content: "arrivando",
     },
     {
       acf_fc_layout: "Button",
-      content: "Click Me!",
+      content: "Chiappami",
     }
   ]
 };

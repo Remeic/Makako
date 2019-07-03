@@ -3,9 +3,9 @@ import React from "react";
 
 
 const Paragraph = (props) => (
-  <p className={props.className} >
+  <h1 className={props.className} >
     {props.content}
-  </p>
+  </h1>
 );
 
 export {Paragraph};
