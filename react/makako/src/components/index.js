@@ -4,14 +4,20 @@ import {
 import {
   Paragraph
 } from "./Paragraph";
+import {
+  Wysiwyg
+} from "./Wysiwyg";
+
 
 const components = {
   "Div": Div,
-  "Paragraph": Paragraph
+  "Paragraph": Paragraph,
+  "Wysiwyg": Wysiwyg
 }
 export {
   Div,
   Paragraph,
+  Wysiwyg,
   components
 }
 
