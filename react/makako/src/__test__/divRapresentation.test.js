@@ -45,7 +45,7 @@ it("Rapresentation of Div with multiple Children - with Content", () => {
       {
         acf_fc_layout: "Paragraph",
         content: "Gas!",
-        id: 2
+        id: 3
       }
     ]
   };
@@ -55,3 +55,4 @@ it("Rapresentation of Div with multiple Children - with Content", () => {
   ReactDOM.render(element, container);
   expect(container.innerHTML).toBe("<div><p>Hello World!</p><p>Gas!</p></div>");
 });
+

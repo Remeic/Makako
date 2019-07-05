@@ -72,3 +72,24 @@ it("Create element from JSON - Recursive Div", () => {
   expect(element).toMatchObject(stub);
 });
 
+
+it("Create element from JSON - Wysiqyg", () => {
+  let content =  "<p><a href=\"http://google.com\">Google</a></p>\n";
+  content = content.replace(/(?:\r\n|\r|\n)/g, '<br>');
+  content = decodeURI(content)
+
+  let json = {
+    "acf_fc_layout": "Wysiwyg",
+    "id": 1,
+    "content": "<p><a href=\"http://google.com\">Google</a></p>\n",
+    };
+
+  let element = createReactElement(json);
+  const stub = React.createElement(
+    components["Wysiwyg"],
+    { "key": 1,
+    "content": content }
+  );
+  expect(element).toMatchObject(stub);
+});
+
