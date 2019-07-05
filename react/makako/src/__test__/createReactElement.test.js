@@ -1,4 +1,5 @@
 import React from "React";
+import ReactDOM from "react-dom";
 import { createReactElement } from "../componentGenerator/reactFactory";
 import { components } from "../components";
 
@@ -70,3 +71,4 @@ it("Create element from JSON - Recursive Div", () => {
   );
   expect(element).toMatchObject(stub);
 });
+
