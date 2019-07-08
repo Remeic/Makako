@@ -1,57 +1,6 @@
 import React from "react";
 import { components } from "../components";
 
-// function paragraphHelper(elementJson) {
-//   let props = {};
-//   if (elementJson.hasOwnProperty("content")) {
-//     props["content"] = [elementJson.content];
-//   }
-//   return props;
-// }
-
-// function helperType(elementJson) {
-//   let result = {};
-//   switch (elementJson.acf_fc_layout) {
-//     case "Paragraph":
-//       result = paragraphHelper(elementJson);
-//       break;
-
-//     default:
-//       result = {};
-//   }
-//   return result;
-// }
-
-// function createReactElement(elementJson) {
-//   let result = "";
-//   let props = {};
-//   let children = [];
-
-//   elementJson = elementJson || {};
-//   if (
-//     !(
-//       elementJson == "" ||
-//       elementJson == undefined ||
-//       Object.keys(elementJson).length == 0
-//     ) &&
-//     elementJson.hasOwnProperty("acf_fc_layout")
-//   ) {
-//     if (elementJson.hasOwnProperty("class")) {
-//       props["className"] = elementJson.class;
-//     }
-//     if (elementJson.hasOwnProperty("children")) {
-//       children = elementJson.children.map(c => createReactElement(c));
-//     }
-
-//     let helper = helperType(elementJson);
-//     props = Object.assign(props, helper);
-//     result = React.createElement(components[elementJson.acf_fc_layout], props,children);
-//   }
-//   return result;
-// }
-
-// export { createReactElement };
-
 
 /**
 * Function that return props for Wysiwyg component and unscaping html string by decodeURI method
@@ -62,7 +11,7 @@ import { components } from "../components";
 function additionalWysiwygProps(elementJson){
   let result = {};
   if(elementJson.hasOwnProperty('content')){
-    let content = elementJson.content;
+    let content = elementJson['content'];
     content = content.replace(/(?:\r\n|\r|\n)/g, '<br>');
     // content = decodeURI(content) // Unscaping string to back to HTML
     result["content"] = content;
@@ -76,10 +25,10 @@ function additionalWysiwygProps(elementJson){
  * @param {*} elementJson Custom Element JSON (defined by ACF)
  * Output: {} is property content is not defined or Object with content props
  */
-function additionalParagraphProps(elementJson) {
+function additionalDefaultProps(elementJson) {
   let result = {};
   if(elementJson.hasOwnProperty('content')){
-    result["content"]=elementJson.content;
+    result["content"]=elementJson['content'];
   }
   return result;
 
@@ -95,16 +44,12 @@ function additionalParagraphProps(elementJson) {
 function additionalProps(elementJson) {
   let result;
   switch (elementJson.acf_fc_layout) {
-    case 'Paragraph':
-      result = additionalParagraphProps(elementJson);
-      break;
-
     case 'Wysiwyg':
       result = additionalWysiwygProps(elementJson);
       break;
   
     default:
-      result = {}
+      result = additionalDefaultProps(elementJson)
       break;
   }
   return result;
@@ -117,16 +62,20 @@ function additionalProps(elementJson) {
  * Output: React element instance (eventually Tree)
  */
 function createReactElement(elementJson) {
+  console.log(elementJson);
+  
   let result = "";
   let props = {};
-  if (elementIsValid(elementJson)) {
+  if (elementIsValid(elementJson)) { 
     props = additionalProps(elementJson);
     props["key"] = validateKey(elementJson["id"]);
     if(elementHasClass(elementJson)){
       props["className"] = elementJson["class"];
     }
-    result = React.createElement(components[elementJson.acf_fc_layout],props, (elementJson.children || [])
+    result = React.createElement(components[elementJson['acf_fc_layout']],props, (elementJson.children || [])
     .map((children) => createReactElement(children)));
+  }else{
+    //console.log("Elemento non valido");
   }
 
   return result;
@@ -140,15 +89,22 @@ function createReactElement(elementJson) {
  * Output: true if element json object is valid or false
  */
 function elementIsValid(elementJson) {
+  
   let result = false;
-  if(
-   !(elementJson === undefined ||
-    elementJson === "" ||
-    Object.keys(elementJson) === 0
-    ) && (elementJson.hasOwnProperty('acf_fc_layout'))){
-      result = true;
-    }
+
+  try {
+    if(
+      !(elementJson === undefined ||
+       elementJson === "" ||
+       Object.keys(elementJson) === 0
+       ) && (elementJson.hasOwnProperty('acf_fc_layout'))){
+         result = true;
+       }
+  } catch (error) {
+    console.log("Element -> "+ JSON.stringify(elementJson))
+  }
     return result;
+    
 }
 
 /**

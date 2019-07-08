@@ -1,40 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import {createReactElement} from "../src/componentGenerator/reactFactory";
-
+import axios from "axios";
 
 
 function Home() {
-  return <DynamicPage />
-}
+  const [data, setData] = useState({});
 
-function DynamicPage(params) {
+  useEffect(() => {
+    let ignore = false;
 
-  function getPage() {
-    return createReactElement(json)
+    async function fetchData() {
+      const result = await axios('http://localhost:8000/wp-json/wp/v2/makako/home');
+      if (!ignore) setData(result.data.acf.builder[0]);     
   }
 
-  let json = {
-    acf_fc_layout: "Div",
-    children: [
-      {
-        acf_fc_layout: "Paragraph",
-        content: "ciao",
-        class:"red-text"
-      },{
-        acf_fc_layout: "Paragraph",
-        content: "Andrea",
-      },
-      {
-        acf_fc_layout: "Paragraph",
-        content: "da",
-      },
-      {
-        acf_fc_layout: "Paragraph",
-        content: "Giulio",
-      }
-    ]
-  };
+    fetchData();
+    return () => { ignore = true; }
+  }, []);
+
+  return (<DynamicPage  elements={data} />);
+}
+
+function DynamicPage(props) {
+
+  function getPage() {
+        
+    return createReactElement(props.elements)
+  }
 
   return <div>{ getPage() }</div>
 }

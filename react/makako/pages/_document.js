@@ -10,9 +10,9 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <style>{`body { margin: 0 } /* custom! */`}</style>
+          <style>{`body { padding: 100px } /* custom! */`}</style>
         </Head>
-        <body className="custom_class">
+        <body className="custom_classs">
           <div id="root">
             <Main />
             <NextScript />

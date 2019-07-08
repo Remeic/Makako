@@ -5,19 +5,22 @@ import {
   Paragraph
 } from "./Paragraph";
 import {
-  Wysiwyg
+  Wysiqyg
 } from "./Wysiwyg";
+import {
+  Button
+} from "./Button";
 
 
 const components = {
   "Div": Div,
-  "Paragraph": Paragraph,
-  "Wysiwyg": Wysiwyg
+  "Button": Button,
+  "Wysiqyg": Wysiqyg
 }
 export {
   Div,
-  Paragraph,
-  Wysiwyg,
+  Button,
+  Wysiqyg,
   components
 }
 
