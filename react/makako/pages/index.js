@@ -1,25 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import {createReactElement} from "../src/componentGenerator/reactFactory";
-import axios from "axios";
+import fetch from 'isomorphic-unfetch';
 
-
-function Home() {
-  const [data, setData] = useState({});
-
-  useEffect(() => {
-    let ignore = false;
-
-    async function fetchData() {
-      const result = await axios('http://localhost:8000/wp-json/wp/v2/makako/home');
-      if (!ignore) setData(result.data.acf.builder[0]);     
-  }
-
-    fetchData();
-    return () => { ignore = true; }
-  }, []);
-
-  return (<DynamicPage  elements={data} />);
+function Home(props) {
+ 
+  return (<DynamicPage  elements={props.elements} />);
 }
 
 function DynamicPage(props) {
@@ -31,5 +17,15 @@ function DynamicPage(props) {
 
   return <div>{ getPage() }</div>
 }
+
+
+Home.getInitialProps = async function() {
+  const res = await fetch('http://localhost:8000/wp-json/wp/v2/makako/home');
+  const data = await res.json();
+
+  return {
+    elements: data.acf.builder[0]
+  };
+};
 
 export default Home;

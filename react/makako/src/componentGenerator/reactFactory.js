@@ -91,7 +91,6 @@ function createReactElement(elementJson) {
 function elementIsValid(elementJson) {
   
   let result = false;
-
   try {
     if(
       !(elementJson === undefined ||
