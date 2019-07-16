@@ -1,0 +1,130 @@
+{
+  "config": {
+    "title": "Makako",
+    "description": "My awesome app using docz",
+    "menu": [],
+    "version": "0.1.0",
+    "repository": null,
+    "native": false,
+    "codeSandbox": true,
+    "themeConfig": {},
+    "separator": "-"
+  },
+  "props": [
+    {
+      "key": "src/App.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "App",
+          "methods": [
+            {
+              "name": "gotoPage",
+              "docblock": null,
+              "modifiers": [],
+              "params": [
+                {
+                  "name": "nextPage",
+                  "type": null
+                }
+              ],
+              "returns": null
+            }
+          ],
+          "actualName": "App"
+        }
+      ]
+    },
+    {
+      "key": "src/components/Div.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Div",
+          "methods": [],
+          "actualName": "Div"
+        }
+      ]
+    },
+    {
+      "key": "src/components/Paragraph.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Paragraph",
+          "methods": [],
+          "actualName": "Paragraph"
+        }
+      ]
+    },
+    {
+      "key": "src/components/Wysiwyg.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Wysiqyg",
+          "methods": [],
+          "actualName": "Wysiqyg"
+        }
+      ]
+    },
+    {
+      "key": "src/components/Button/Button.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Button",
+          "methods": [],
+          "actualName": "Button",
+          "props": {
+            "className": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "Classi che verrannop assegnate al bottone"
+            },
+            "content": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "Contenuto che verrà visualizzato nel bottone"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "entries": [
+    {
+      "key": "src/components/Button/button_doc.mdx",
+      "value": {
+        "name": "Button",
+        "id": "16ad1aeea9c65994cde2b8cff69881d9",
+        "filepath": "src/components/Button/button_doc.mdx",
+        "link": "",
+        "slug": "src-components-button-button-doc",
+        "route": "/src-components-button-button-doc",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "button",
+            "depth": 1,
+            "value": "Button"
+          },
+          {
+            "slug": "proprietà",
+            "depth": 2,
+            "value": "Proprietà"
+          },
+          {
+            "slug": "come-si-utilizza",
+            "depth": 2,
+            "value": "Come si utilizza"
+          }
+        ]
+      }
+    }
+  ]
+}

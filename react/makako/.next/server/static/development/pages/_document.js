@@ -1996,8 +1996,8 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_2___default.a {
         lineNumber: 13
       },
       __self: this
-    }, `body { margin: 0 } /* custom! */`)), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("body", {
-      className: "custom_class",
+    }, `body { padding: 100px } /* custom! */`)), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("body", {
+      className: "custom_classs",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 15

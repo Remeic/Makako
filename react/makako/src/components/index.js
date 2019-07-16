@@ -9,7 +9,7 @@ import {
 } from "./Wysiwyg";
 import {
   Button
-} from "./Button";
+} from "./Button/Button";
 
 
 const components = {
