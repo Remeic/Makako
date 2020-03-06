@@ -1,0 +1,10 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "react/makako/package.json",
+        "wordpress/wp-content/themes/twentynineteen/package.json"
+      ]
+    }
+  }
+}
